@@ -24,6 +24,7 @@ namespace RockProgressif.Data
         public virtual DbSet<ChansonAlbum> ChansonAlbums { get; set; } = null!;
         public virtual DbSet<Groupe> Groupes { get; set; } = null!;
         public virtual DbSet<Role> Roles { get; set; } = null!;
+        public virtual DbSet<VwLiensArtisteGroupe> VwLiensArtisteGroupes { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -76,6 +77,11 @@ namespace RockProgressif.Data
                     .HasForeignKey(d => d.GroupeId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Role_GroupeID");
+            });
+
+            modelBuilder.Entity<VwLiensArtisteGroupe>(entity =>
+            {
+                entity.ToView("vw_LiensArtisteGroupe", "Groupes");
             });
 
             OnModelCreatingPartial(modelBuilder);

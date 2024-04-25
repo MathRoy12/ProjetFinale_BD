@@ -26,6 +26,13 @@ namespace RockProgressif.Controllers
                           View(await _context.Artistes.ToListAsync()) :
                           Problem("Entity set 'ProgRockBDContext.Artistes'  is null.");
         }
+        
+        public async Task<IActionResult> ActionVue()
+        {
+              return _context.VwLiensArtisteGroupes != null ? 
+                          View(await _context.VwLiensArtisteGroupes.ToListAsync()) :
+                          Problem("Entity set 'ProgRockBDContext.Artistes'  is null.");
+        }
 
         // GET: Artistes/Details/5
         public async Task<IActionResult> Details(int? id)

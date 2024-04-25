@@ -1,0 +1,44 @@
+﻿@model IEnumerable<RockProgressif.Models.VwLiensArtisteGroupe>
+
+@{
+ViewData["Title"] = "Index";
+}
+
+<h1>Lien entre les artistes et les groupes</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomScene)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomArtiste)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomGroupe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Instrument)
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomScene)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomArtiste)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomGroupe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Instrument)
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>
