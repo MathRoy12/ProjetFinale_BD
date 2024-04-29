@@ -22,7 +22,7 @@ namespace RockProgressif.Models
         public string Nom { get; set; } = null!;
         [Column(TypeName = "date")]
         public DateTime DateFormation { get; set; }
-        public int TotaleAlbumVendue { get; set; }
+        public byte[]? TotaleAlbumVendue { get; set; }
 
         [InverseProperty("Groupe")]
         public virtual ICollection<Album> Albums { get; set; }

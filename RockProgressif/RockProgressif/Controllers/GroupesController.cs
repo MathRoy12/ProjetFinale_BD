@@ -67,57 +67,6 @@ namespace RockProgressif.Controllers
             return View(groupe);
         }
 
-        // GET: Groupes/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Groupes == null)
-            {
-                return NotFound();
-            }
-
-            var groupe = await _context.Groupes.FindAsync(id);
-            if (groupe == null)
-            {
-                return NotFound();
-            }
-            return View(groupe);
-        }
-
-        // POST: Groupes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("GroupeId,Nom,DateFormation,TotaleAlbumVendue")] Groupe groupe)
-        {
-            if (id != groupe.GroupeId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(groupe);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!GroupeExists(groupe.GroupeId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(groupe);
-        }
-
         // GET: Groupes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

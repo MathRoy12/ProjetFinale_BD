@@ -21,4 +21,17 @@
       <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Albums\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Albums\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Albums\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Albums\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Albums\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Groupes\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Groupes\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Groupes\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Groupes\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Groupes\Index.cshtml" />
+    </ItemGroup>
+
 </Project>

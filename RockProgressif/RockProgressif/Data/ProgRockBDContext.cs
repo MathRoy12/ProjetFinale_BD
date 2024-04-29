@@ -23,6 +23,7 @@ namespace RockProgressif.Data
         public virtual DbSet<Chanson> Chansons { get; set; } = null!;
         public virtual DbSet<ChansonAlbum> ChansonAlbums { get; set; } = null!;
         public virtual DbSet<Groupe> Groupes { get; set; } = null!;
+        public virtual DbSet<GroupeEnClair> GroupeEnClairs { get; set; } = null!;
         public virtual DbSet<Role> Roles { get; set; } = null!;
         public virtual DbSet<VwLiensArtisteGroupe> VwLiensArtisteGroupes { get; set; } = null!;
 

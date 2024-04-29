@@ -28,56 +28,7 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.TotaleAlbumVendue)
         </dd>
-    </dl><br/>
-    <h5>Artistes</h5>
-    <hr />
-    <table class="table">
-        <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Roles.First().Artiste.NomComplet)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Roles.First().Artiste.NomScene)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Roles.First().Artiste.DateNaissance)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Roles.First().Instrument)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Roles.First().DateDebut)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Roles.First().DateFin)
-            </th>
-        </tr>
-        @foreach (var item in Model.Roles)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(i => item.Artiste.NomComplet)
-            </td>
-            <td>
-                @Html.DisplayFor(i => item.Artiste.NomScene)
-            </td>
-            <td>
-                @Html.DisplayFor(i => item.Artiste.DateNaissance)
-            </td>
-            <td>
-                @Html.DisplayFor(i => item.Instrument)
-            </td>
-            <td>
-                @Html.DisplayFor(i => item.DateDebut)
-            </td>
-            <td>
-                @Html.DisplayFor(i => item.DateFin)
-            </td>
-        </tr>
-        }
-        </thead>
-    </table>
+    </dl>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.GroupeId">Edit</a> |
