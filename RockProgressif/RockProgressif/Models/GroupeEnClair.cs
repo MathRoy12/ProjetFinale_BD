@@ -10,6 +10,7 @@ namespace RockProgressif.Models
     [Table("GroupeEnClair", Schema = "Groupes")]
     public partial class GroupeEnClair
     {
+        public int GroupeId { get; set; }
         [StringLength(100)]
         public string Nom { get; set; } = null!;
         [Column(TypeName = "date")]

@@ -3,11 +3,11 @@ GO
 SET IDENTITY_INSERT [Groupes].[Groupe] ON
 
 INSERT [Groupes].[Groupe] ([GroupeID], [Nom], [DateFormation], [TotaleAlbumVendue])
-VALUES (1, N'Genesis', CAST(N'1967-03-07' AS Date), 0)
+VALUES (1, N'Genesis', CAST(N'1967-03-07' AS Date), 12759732)
 INSERT [Groupes].[Groupe] ([GroupeID], [Nom], [DateFormation], [TotaleAlbumVendue])
-VALUES (2, N'Rush', CAST(N'1968-08-18' AS Date), 0)
+VALUES (2, N'Rush', CAST(N'1968-08-18' AS Date), 7956910)
 INSERT [Groupes].[Groupe] ([GroupeID], [Nom], [DateFormation], [TotaleAlbumVendue])
-VALUES (3, N'Dream Theater', CAST(N'1985-09-23' AS Date), 0)
+VALUES (3, N'Dream Theater', CAST(N'1985-09-23' AS Date), 3718466)
 SET IDENTITY_INSERT [Groupes].[Groupe] OFF
 GO
 SET IDENTITY_INSERT [Albums].[Album] ON

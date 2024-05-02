@@ -10,9 +10,10 @@ ALTER TABLE Groupes.Groupe
 GO
 CREATE TABLE Groupes.GroupeEnClair
 (
-    Nom               nvarchar(100)      NOT NULL,
-    DateFormation     date               NOT NULL,
-    TotaleAlbumVendue int                NOT NULL
+    GroupeId          int           NOT NULL,
+    Nom               nvarchar(100) NOT NULL,
+    DateFormation     date          NOT NULL,
+    TotaleAlbumVendue int           NOT NULL
 );
 GO
 
@@ -45,7 +46,7 @@ AS
 BEGIN
     OPEN SYMMETRIC KEY MaSuperCle DECRYPTION BY CERTIFICATE MonCertificat;
 
-    SELECT Nom, DateFormation, CONVERT(int, DecryptByKEY(TotaleAlbumVendue)) AS TotaleAlbumVendue
+    SELECT  GroupeID ,Nom, DateFormation, CONVERT(int, DecryptByKEY(TotaleAlbumVendue)) AS TotaleAlbumVendue
     FROM Groupes.Groupe
     WHERE GroupeID = @Id
 
