@@ -1,0 +1,40 @@
+@model ChansonIndexViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<form asp-action="Index">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <select asp-for="AlbumId" asp-items="@ViewBag.Albums">
+        <option>---</option>
+    </select>
+    <input type="submit">
+</form>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Chansons.First().Titre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Chansons.First().DureeSeconde)
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Chansons)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DureeSeconde)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
