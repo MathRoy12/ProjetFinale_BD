@@ -39,6 +39,8 @@ namespace RockProgressif.Data
         {
             modelBuilder.Entity<Album>(entity =>
             {
+                entity.Property(e => e.IdentifiantCover).HasDefaultValueSql("(newid())");
+
                 entity.HasOne(d => d.Groupe)
                     .WithMany(p => p.Albums)
                     .HasForeignKey(d => d.GroupeId)

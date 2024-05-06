@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace RockProgressif.Models
 {
     [Table("Album", Schema = "Albums")]
+    [Index("IdentifiantCover", Name = "UC_Album_IdentifiantCover", IsUnique = true)]
     public partial class Album
     {
         public Album()
@@ -25,6 +26,8 @@ namespace RockProgressif.Models
         public int NoteCritiques { get; set; }
         [Column("GroupeID")]
         public int GroupeId { get; set; }
+        public Guid IdentifiantCover { get; set; }
+        public byte[]? CoverContent { get; set; }
 
         [ForeignKey("GroupeId")]
         [InverseProperty("Albums")]
