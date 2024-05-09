@@ -52,20 +52,53 @@ namespace RockProgressif.Controllers
                     NoteCritiques = acvm.NoteCritiques,
                     NombreVentes = acvm.NombreVentes
                 };
-                
+
                 MemoryStream stream = new MemoryStream();
                 await acvm.FormFile.CopyToAsync(stream);
                 byte[] fichier = stream.ToArray();
                 album.CoverContent = fichier;
-                
+
                 await _context.Albums.AddAsync(album);
                 await _context.SaveChangesAsync();
-                
+
                 return RedirectToAction(nameof(Index));
             }
 
             ViewData["GroupeId"] = new SelectList(_context.Groupes, "GroupeId", "Nom", acvm.GroupeId);
             return View(acvm);
+        }
+
+        public async Task<IActionResult> Filtre()
+        {
+            AlbumsFiltreViewModel data = new AlbumsFiltreViewModel();
+
+            data.albums = await _context.Albums.ToListAsync();
+            ViewData["Groupes"] = new SelectList(_context.Groupes, "GroupeId", "Nom");
+
+            return View(data);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Filtre(AlbumsFiltreViewModel afvm)
+        {
+            ViewData["Groupes"] = new SelectList(_context.Groupes, "GroupeId", "Nom");
+
+            var albums = _context.Albums.AsQueryable();
+            if (afvm.GroupeId > 0)
+            {
+                albums = albums.Where(a => a.GroupeId == afvm.GroupeId).AsQueryable();
+            }
+            if (afvm.NbVenteMin != null)
+            {
+                albums = albums.Where(a => a.NombreVentes >= afvm.NbVenteMin).AsQueryable();
+            }
+            if (afvm.NoteCritiqueMin != null)
+            {
+                albums = albums.Where(a => a.NoteCritiques >= afvm.NoteCritiqueMin).AsQueryable();
+            }
+    
+            afvm.albums = await albums.ToListAsync();
+            return View(afvm);
         }
     }
 }
